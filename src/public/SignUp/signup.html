@@ -1,0 +1,100 @@
+<div class="container">
+	<form novalidate name="form" ng-submit="fctrl.submit(form)">
+		<div class="form-group">
+			<label for="firstname">First Name : </label>
+			<input
+				type="text"
+				name="fname"
+				class="form-control"
+				placeholder="Firstname"
+				ng-model="fctrl.user.fname"
+				minlength="3"
+				ng-maxlength="10"
+				required
+			/>
+			<span
+				ng-if="(form.fname.$error.minlength) || (form.fname.$error.required) && form.fname.$touched"
+			>
+				Lastname must be atleast 3 charecters.
+			</span>
+			<span ng-if="form.fname.$error.maxlength && form.fname.$touched">
+				Lastname must not be longer than 10 charecters.
+			</span>
+		</div>
+		<div class="form-group">
+			<label for="Lastname">Last Name : </label>
+			<input
+				type="text"
+				name="lname"
+				class="form-control"
+				placeholder="Lastname"
+				ng-model="fctrl.user.lname"
+				minlength="3"
+				ng-maxlength="10"
+				required
+			/>
+			<span
+				ng-if="(form.lname.$error.minlength) || (form.lname.$error.required) && form.lname.$touched"
+			>
+				Lastname must be atleast 3 charecters.
+			</span>
+			<span ng-if="form.lname.$error.maxlength && form.lname.$touched">
+				Lastname must not be longer than 10 charecters.
+			</span>
+		</div>
+		<div class="form-group">
+			<label for="Email">E-mail : </label>
+			<input
+				type="email"
+				name="Email"
+				class="form-control"
+				placeholder="Email"
+				ng-model="fctrl.user.email"
+				required
+			/>
+			<span ng-if="form.Email.$invalid && form.Email.$touched">
+				Please enter a valid email eg.abc@xyz.com
+			</span>
+		</div>
+		<div class="form-group">
+			<label for="phone">Phone Number : </label>
+			<input
+				placeholder="enter 10 digit no."
+				name="phone"
+				type="text"
+				class="form-control"
+				pattern="(\d{10})"
+				ng-model="fctrl.user.phone"
+				required
+			/>
+			<span ng-if="form.phone.$invalid && form.phone.$touched">
+				Phone no. must be in 10 digits
+			</span>
+		</div>
+		<div class="form-group">
+			<label for="favitem">Please provide your favorite dish's Code : </label>
+			<input
+				placeholder="enter your favorite dish code"
+				ng-model="fctrl.user.favitem"
+				name="favitem"
+				type="text"
+				class="form-control"
+			></>
+			<span ng-show="fctrl.showError" >
+				That dish does not exist!!
+			</span>
+		</div>
+		<div class="form-group">
+			<input
+				ng-disabled="form.$invalid"
+				class="btn btn-default"
+				name="submit"
+				type="submit"
+				value="submit"
+			>
+		</div>
+		<div class="form-group">
+			<span ng-show="fctrl.showMessage">You are signed up.</span>
+		</div>
+	</form>
+</div>

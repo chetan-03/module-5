@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row" ng-show="ictrl.showUser">
+		<h1>User info</h1>
+		<p>First name:{{ictrl.user.fname}}</p>
+		<p>Last name : {{ictrl.user.lname}}</p>
+		<p>Email : {{ictrl.user.email}}</p>
+		<p>Phone number : {{ictrl.user.phone}}</p>
+		<p>Favorite Dish Details: {{ictrl.user.favitemDetails.name}}</p>
+		<p>{{ictrl.user.favitemDetails.description}}</p>
+		<img
+			ng-src="{{ictrl.ApiPath}}/images/{{ictrl.user.favitem}}.jpg"
+			alt="{{ictrl.user.favitemDetails.name}}"
+		/>
+	</div>
+	<div class="row" ng-hide="ictrl.showUser">
+		<h1>Not Signed Up Yet. <a ui-sref="public.signup"> Sign up Now! </a></h1>
+	</div>
+</div>
